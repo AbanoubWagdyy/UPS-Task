@@ -15,7 +15,8 @@ import io.reactivex.schedulers.Schedulers
 class CarDetailsVM @Inject constructor(var mRepositorySource: RepositorySource) : BaseViewModel() {
 
     private var carDetailsLiveData = MutableLiveData<CarDetailsResponse>()
-    private var exterior_url =""
+    private var exterior_url = ""
+    private var interior_url = ""
 
     @SuppressLint("CheckResult")
     fun getCarDetails() {
@@ -35,6 +36,9 @@ class CarDetailsVM @Inject constructor(var mRepositorySource: RepositorySource) 
             if (carDetailsResponse.status.equals(BuildConfig.SUCCESS)) {
                 carDetailsLiveData.value = carDetailsResponse
                 exterior_url = carDetailsResponse.data[0].models_exterior_image
+                interior_url =
+                    BuildConfig.BASE_URL + carDetailsResponse.data[0].models_interior_image
+                Log.d("interior_url", interior_url)
             } else {
                 errorObserver.value = carDetailsResponse.message
             }
@@ -49,5 +53,9 @@ class CarDetailsVM @Inject constructor(var mRepositorySource: RepositorySource) 
 
     fun getExteriorImageURL(): String {
         return exterior_url
+    }
+
+    fun getInteriorImageURL(): String? {
+        return interior_url
     }
 }

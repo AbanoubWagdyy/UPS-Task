@@ -24,6 +24,7 @@
         </activity>
         <activity android:name="com.ups.ui.carList.CarListActivity" />
         <activity android:name=".ui.ExteriorActivity" />
+        <activity android:name=".ui.InteriorActivity" />
         <activity
             android:name="com.ups.ui.carDetails.CarDetailsActivity"
             android:parentActivityName=".ui.carList.CarListActivity" />

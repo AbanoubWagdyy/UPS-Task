@@ -13,10 +13,10 @@ import com.ups.di.qualifiers.ViewModelInjection
 import com.ups.di.ViewModelInjectionField
 import com.ups.ui.BaseActivity
 import com.ups.ui.ExteriorActivity
+import com.ups.ui.InteriorActivity
 import kotlinx.android.synthetic.main.activity_car_details.*
 import kotlinx.android.synthetic.main.activity_car_list.*
 import kotlinx.android.synthetic.main.app_bar_homepage.*
-import org.json.JSONObject
 
 class CarDetailsActivity : BaseActivity() {
 
@@ -63,6 +63,9 @@ class CarDetailsActivity : BaseActivity() {
 
     private fun initListeners() {
         showInterior.setOnClickListener {
+            val intent = Intent(applicationContext, InteriorActivity::class.java)
+            intent.putExtra("url", viewModel!!.getInteriorImageURL())
+            startActivity(intent)
         }
         showExterior.setOnClickListener {
             val intent = Intent(applicationContext, ExteriorActivity::class.java)
