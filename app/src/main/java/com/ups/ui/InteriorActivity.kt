@@ -8,11 +8,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import com.panoramagl.utils.PLUtils
 import com.ups.R
-import com.ups.data.convertToByteArray
 import kotlinx.android.synthetic.main.activity_interior.*
-
 
 class InteriorActivity : AppCompatActivity() {
 
